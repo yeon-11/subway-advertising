@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Subway_3조</title>
+<link rel="shortcut icon" href="images/subway_favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="./reset/work_reset.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="./reset/jquery-ui.min.js"></script>
+<script src="./reset/jquery.smoothwheel.js"></script>
+<script src="./reset/script.js"></script>
 
+<script>
+$(function() {
+
+// Section5 Slide
+var current = 0;
+$("#sec5 #pager li").eq(1).click(function() {
+if(current == 4){
+    current = 0;
+} else{
+    current += 1;
+}
+$("#sec5 #slide_wrap").stop().animate({"margin-top":-(80*current)+'vh'}, 300);
+    //console.log(current);
+});
+$("#sec5 #pager li").eq(0).click(function() {
+if(current == 0){
+    current = 4;
+} else{
+    current -= 1;
+}
+$("#sec5 #slide_wrap").stop().animate({"margin-top":-(80*current)+'vh'}, 300);
+    //console.log(current);
+});
+    
+// Section6 Click
+$("#sec6 #left li").eq(0).addClass("on");
+$("#sec6 #right li").eq(0).css({display:'block'});
+$("#sec6 #left li").click(function() {
+
+$("#sec6 #left li").removeClass("on");
+$(this).addClass("on");
+var index = $(this).index();
+
+$("#sec6 #right li").eq(index).siblings().stop().fadeOut(300);
+$("#sec6 #right li").eq(index).stop().fadeIn(500);
+});
+
+// Section7 Slide
+function sec7Slide() {
+$("#sec7 #slide_wrap").stop().animate({"margin-left":'-100vw'}, 300, function() {
+    $(this).find("li").eq(0).appendTo(this);
+    $(this).css({"margin-left":0});
+});
+} 
+setInterval(sec7Slide, 4000);
+
+})// end
+</script>
+</head>
+
+<body>
+
+<div id="container">
+<!-- HEADER -->
+<header>
+<h1 id="logo"><a href="./index.html">
+<img src=""></a></h1>
+</header>
+
+<!-- TOP BUTTON -->
+<div id="top_btn">
+<div></div><div></div>
+</div>
+
+<!-- FRONT -->
+<div id="front">
+<div id="img"><img src="images/1-1.jpg" alt="subway"></div>
+<div id="title"><p>Subway
+<span>브랜드 광고 모션그래픽&nbsp; |&nbsp; 최하얀, 권하경, 박지연, 이윤희, 최원경</span></p></div>
+<div id="click_arr"><div></div><div></div></div>
+</div>
+
+<!-- CONTENT --> 
+<div id="contents">
+<section id="sec1">
+<!-- <h1>디자인 픽션 몽상칩</h1>
+<p>몽상칩은 현대 기술을 바탕으로 '미래에 이러한 제품이 나온다면 어떨까?'라는 의문에서 출발한  디자인 픽션입니다.<br>제품의 사회문화적 커뮤니케이션에 중점을 두고 실험적 프로젝트를 진행하였습니다.</p> -->
+</section>
+<section id="sec2">
+<div id="vid"><video controls><source src="images/mov.mp4"></video></div>
+</section>
+<section id="sec3">
+<div id="img"><img src="images/aaa.png" alt="subway"></div>
+<div id="img2"><img src="images/logo.png" alt="subway"></div>
+<div id="text">
+<h1>산지 그대로의 싱그러움, 매일을 신선하게!</h1>
+<p>건강한 환경에서 생산된 최고의 야채들을 사용합니다.<br>
+<span>당일 판매되는 양만큼 준비되며, <br>
+      엄격한 규율에 따라 세척 과정을 거친 야채들은<br>
+      언제나 최상의 맛과 신선함을 제공합니다.</span></p>
+</div>
+</section>
+<!-- <section id="sec4">
+<div id="img"><img src="images/mongsang_3.png" alt="subway"></div>
+<div id="text">
+<h1>FEATURE</h1>
+<p>몽상칩 사용시 표피 하부의 기억인자가 먼저 말초신경을 통해 대뇌와 연결되며,<br>이후 뇌에서 생성된 기억을 신체가 완전히 인식할 수 있도록 전체 신경계에 전달됩니다.<br>
+편안함을 유도하기 위해 신경 물질이 분비되기 때문에 몸에 피로가 누적되지 않습니다.<br>또한, 신경계 이외의 다른 신체 부위를 사용하지 않고 신체가 휴식을 취하기 때문에<br>장기적인 사용에도 신체상의 무리가 가지 않습니다.</p></div>
+</section> -->
+<section id="sec5">
+<div id="text"><h1>HISTORY</h1></div>
+<div id="bg">
+<div id="slide">
+<ul id="slide_wrap">
+<li><img src="images/h.png" alt="subway"></li>
+</ul>
+</div>
+<ul id="pager">
+<li>&#9664;</li><li>&#9654;</li>
+</ul>
+</div>
+</section>
+<section id="sec6">
+<div id="left">
+<ul><li></li><li></li><li></li><li></li><li></li></ul>
+</div>
+<div id="right">
+<ul>
+<li><div id="img"><img src="images/샌드위치2.png" alt="subway"></div>
+<!-- <p><span>몽상칩</span>하나의 몽상칩에 하나의 기억 이야기가 담겨 있습니다.<br>한 세트에 두 개의 몽상칩이 동봉되어 있습니다.</p></li> -->
+<!-- <li><div id="img"><img src="images/icon_on_2.png" alt="subway"></div> -->
+<!-- <p><span>설명서</span>설명서의 사용법을 숙지하신 후 사용해 주시기 바랍니다.<br>마지막 페이지에 몽상칩의 고유번호가 기재되어 있습니다.</p></li> -->
+<!-- <li><div id="img"><img src="images/icon_on_3.png" alt="subway"></div> -->
+<!-- <p><span>알콜솜</span>몽상칩의 기능을 완벽히 이용하기 위해<br>부착 시 이물질을 깔끔히 제거해 주시기 바랍니다.</p></li> -->
+<!-- <li><div id="img"><img src="images/icon_on_4.png" alt="subway"></div> -->
+<!-- <p><span>안대</span>눈으로 빛의 변화를 감지하지 않는다면<br>더욱 편안히 몽상칩의 효과를 체험할 수 있습니다.</p></li> -->
+<!-- <li><div id="img"><img src="images/icon_on_5.png" alt="subway"></div> -->
+<!-- <p><span>수면음료</span>신체의 긴장을 완화시켜 더 편안한 체험을 할 수 있습니다.<br>몽상칩 사용 20분 전 섭취 바랍니다</p></li> -->
+</ul> 
+</div>
+<div id="text">
+<h1>PROMISE</h1>
+<p>1965년 미국 코네티컷에서 시작된 서브웨이는 매장에서 직접 구워낸 신선한 빵을 제공하는 것을 시작으로<br>
+    저지방 샌드위치, 빵의 인공첨가물 제거 등 건강한 먹거리를 제공하기 위해 노력 해왔습니다.<br>
+    또한 서브웨이의 샐러드 보울은 95% 재생 용기로 만들어졌으며, 매장 내 일회용품 사용을 줄여 나가고 있습니다.</p>
+</div>
+</section>
+<section id="sec7">
+<div id="text"><h1>ORDER</h1></div>
+<div id="slide">
+<ul id="slide_wrap">
+<li><img src="images/bx2_1.png" alt="subway"></li>
+<li><img src="images/bx2_2.png" alt="subway"></li>
+<li><img src="images/bx2_3.png" alt="subway"></li>
+<li><img src="images/bx2_4.png" alt="subway"></li>
+<li><img src="images/bx2_5.png" alt="subway"></li>
+</ul></div>
+<div id="img">
+<img src="images/포스터-목업.png" alt="subway">
+</div>
+</section>
+<section id="sec8">
+<!-- <img src="images/포장봉투-목업.png" alt="subway">
+</section> -->
+</div>
+
+</div>
+</body>
+</html>
